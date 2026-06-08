@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -20,7 +20,7 @@ const currentPath = Astro.url.pathname;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;1,400&family=Unbounded:wght@700;800&display=swap" rel="stylesheet" />
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <div class="layout">
