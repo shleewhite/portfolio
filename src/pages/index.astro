@@ -1,0 +1,102 @@
+---
+import Base from '../layouts/Base.astro';
+import { speaking, portfolio } from '../data/content';
+import ConversationsUI from '../components/svgs/ConversationsUI.astro';
+import MenuSubHeaders from '../components/svgs/MenuSubHeaders.astro';
+import ButtonsChangingText from '../components/svgs/ButtonsChangingText.astro';
+import VisualPicker from '../components/svgs/VisualPicker.astro';
+
+const svgs: Record<string, any> = {
+  conversations: ConversationsUI,
+  menu: MenuSubHeaders,
+  buttons: ButtonsChangingText,
+  visualpicker: VisualPicker,
+};
+
+const selectedWork = portfolio.slice(0, 2);
+---
+<Base title="Lee White">
+  <section aria-labelledby="bio-name">
+    <p class="bio__eyebrow">UX Engineer · Accessibility Specialist</p>
+    <h1 class="bio__name" id="bio-name">Lee White</h1>
+    <p class="bio__text">
+      I'm a UX engineer with 8+ years building design systems and accessible interfaces.
+      I specialize in the space between design and engineering — translating concepts into
+      components that work for everyone.
+    </p>
+  </section>
+
+  <section class="section" aria-labelledby="speaking-heading">
+    <div class="section__header">
+      <h2 class="section__title" id="speaking-heading">Speaking</h2>
+    </div>
+    <ul>
+      {speaking.map((talk) => (
+        <li class="entry">
+          <div class="entry__left">
+            <a href={talk.url} class="entry__title" target="_blank" rel="noopener noreferrer">
+              {talk.title}
+            </a>
+            {talk.slides && <a href={talk.slides} class="entry__slides" target="_blank" rel="noopener noreferrer">Slides ↗</a>}
+          </div>
+          <span class="entry__meta">{talk.event}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="work-heading">
+    <div class="section__header">
+      <h2 class="section__title" id="work-heading">Selected work</h2>
+      <a href="/portfolio" class="section__link">Full portfolio →</a>
+    </div>
+    <ul class="card-grid" role="list">
+      {selectedWork.map((project) => (
+        <li class="card">
+          {(() => { const SvgComponent = project.svgId ? svgs[project.svgId] : null; return SvgComponent ? <div class="card__thumb" aria-hidden="true"><SvgComponent /></div> : null; })()}
+          <div class="card__body">
+            <a href={project.url} class="card__title" target="_blank" rel="noopener noreferrer">
+              {project.title}
+            </a>
+            <p class="card__desc">{project.description}</p>
+            <ul class="card__tags" aria-label="Tags">
+              {project.tags.map((tag) => (
+                <li class="tag">{tag}</li>
+              ))}
+            </ul>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .bio__eyebrow {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+  }
+
+  .bio__name {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 96px;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 0.95;
+    margin-bottom: 24px;
+  }
+
+  .bio__text {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 560px;
+    margin-top: 32px;
+  }
+
+</style>
