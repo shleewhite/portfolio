@@ -2,7 +2,7 @@
 
 .vscode/
 *.DS_Store
-docs/
+docs/_site/
 dist/
 .astro/
 .claude/
