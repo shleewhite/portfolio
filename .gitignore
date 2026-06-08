@@ -2,3 +2,9 @@
 
 .vscode/
 *.DS_Store
+docs/
+dist/
+.astro/
+.claude/
+test-results/
+playwright-report/

@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import { experience, speaking, writing } from '../data/content';
+---
+<Base title="Resume — Lee White" description="Resume for Lee White, UX Engineer specializing in design systems and accessibility.">
+  <div class="resume-header">
+    <div class="resume-header__top">
+      <h1 class="resume-header__name">Lee White</h1>
+      <a href="/lee-white-resume.pdf" class="download-btn" download>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Download PDF
+      </a>
+    </div>
+    <p class="resume-header__sub">UX Engineer · Design Systems · Accessibility</p>
+    <a href="https://www.credly.com/badges/f4eee65c-d497-406b-876c-bf9c8e699ad2/public_url" class="cert-badge" target="_blank" rel="noopener noreferrer">IAAP Web Accessibility Specialist ↗</a>
+  </div>
+
+  <section class="resume-section" aria-labelledby="exp-heading">
+    <h2 class="resume-section__title" id="exp-heading">Experience</h2>
+    {experience.map((job) => (
+      <div class="job">
+        <div class="job__row">
+          <h3 class="job__title">{job.title}</h3>
+          <span class="job__date">{job.dates}</span>
+        </div>
+        <p class="job__company">{job.company}</p>
+        <ul class="job__bullets">
+          {job.bullets.map((bullet) => (
+            <li class="job__bullet">{bullet}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+
+  <section class="resume-section" aria-labelledby="skills-heading">
+    <h2 class="resume-section__title" id="skills-heading">Skills & Education</h2>
+    <div class="skills-edu-grid">
+      <div>
+        <div class="skills-group">
+          <h3 class="skills-group__label">Frontend</h3>
+          <p class="skills-group__list">TypeScript, HTML, CSS, JavaScript, React, Web Components, Ember</p>
+        </div>
+        <div class="skills-group">
+          <h3 class="skills-group__label">Accessibility</h3>
+          <p class="skills-group__list">WCAG 2.2, ARIA 1.2, NVDA, JAWS, VoiceOver, Axe, keyboard testing, accessibility audits</p>
+        </div>
+        <div class="skills-group">
+          <h3 class="skills-group__label">Speaking & Writing</h3>
+          <ul class="skills-group__list skills-group__list--bullets">
+            {speaking.map((talk) => (
+              <li>
+                {talk.event}: <a href={talk.url} target="_blank" rel="noopener noreferrer">{talk.title}</a>
+              </li>
+            ))}
+            {writing.filter(a => ['Intro to Web Components', 'Accessibility for Web Components'].includes(a.title)).map((article) => (
+              <li>
+                <a href={article.url} target="_blank" rel="noopener noreferrer">{article.title}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="edu-item">
+          <h3 class="edu-item__title">Web Accessibility Specialist</h3>
+          <p class="edu-item__org">International Association of Accessibility Professionals</p>
+          <p class="edu-item__date">March 2024</p>
+        </div>
+        <div class="edu-item">
+          <h3 class="edu-item__title">Bachelor of Science, Computer Science</h3>
+          <p class="edu-item__org">University of California, Santa Cruz</p>
+          <p class="edu-item__date">2015 – 2018</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import { portfolio } from '../data/content';
+import ConversationsUI from '../components/svgs/ConversationsUI.astro';
+import MenuSubHeaders from '../components/svgs/MenuSubHeaders.astro';
+import ButtonsChangingText from '../components/svgs/ButtonsChangingText.astro';
+import VisualPicker from '../components/svgs/VisualPicker.astro';
+
+const svgs: Record<string, any> = {
+  conversations: ConversationsUI,
+  menu: MenuSubHeaders,
+  buttons: ButtonsChangingText,
+  visualpicker: VisualPicker,
+};
+---
+<Base title="Portfolio — Lee White" description="Projects and prototypes by Lee White, focused on accessibility and design systems.">
+  <h1 class="page-title">Portfolio</h1>
+  <ul class="card-grid" role="list">
+    {portfolio.map((project) => {
+      const SvgComponent = project.svgId ? svgs[project.svgId] : null;
+      return (
+        <li class="card">
+          <div class="card__thumb" aria-hidden="true">
+            {SvgComponent && <SvgComponent />}
+          </div>
+          <div class="card__body">
+            <div class="card__header">
+              <a href={project.url} class="card__title" target="_blank" rel="noopener noreferrer">
+                {project.title}
+              </a>
+              <ul class="card__tags" aria-label="Tags">
+                {project.tags.map((tag) => (
+                  <li class="tag">{tag}</li>
+                ))}
+              </ul>
+            </div>
+            <p class="card__desc">{project.description}</p>
+          </div>
+        </li>
+      );
+    })}
+  </ul>
+</Base>
