@@ -34,10 +34,10 @@ const selectedWork = portfolio.slice(0, 2);
       {speaking.map((talk) => (
         <li class="entry">
           <div class="entry__left">
-            <a href={talk.url} class="entry__title" target="_blank" rel="noopener noreferrer">
-              {talk.title}
-            </a>
-            {talk.slides && <a href={talk.slides} class="entry__slides" target="_blank" rel="noopener noreferrer">Slides ↗</a>}
+            {talk.url
+              ? <a href={talk.url} class="entry__title" target="_blank" rel="noopener noreferrer">{talk.title}</a>
+              : <span class="entry__title entry__title--plain">{talk.title}</span>
+            }
           </div>
           <span class="entry__meta">{talk.event}</span>
         </li>

@@ -54,19 +54,16 @@ export const speaking = [
   {
     title: "Progress over Perfection: Your First Steps in Accessibility",
     event: "LibertyJS 2023",
-    url: "https://libertyjs.com/schedule/2023-10-13?sessionId=progressOverPerfectionYourFirstStepsInAccessibility",
-    slides: "https://www.shleewhite.com/progress-over-perfection/#/",
+    url: "https://www.shleewhite.com/progress-over-perfection/#/",
   },
   {
     title: "Accessibility and Web Components",
     event: "A11Y Camp Bay Area 2020",
-    url: "https://www.accessibilitycampbay.org/2020talks.php",
-    slides: "https://docs.google.com/presentation/d/1iRdwHgmQDs2zADAXcMcIXAJazaT05_w7j1Gk6SwBZLc/edit?usp=sharing",
+    url: "https://docs.google.com/presentation/d/1iRdwHgmQDs2zADAXcMcIXAJazaT05_w7j1Gk6SwBZLc/edit?usp=sharing",
   },
   {
     title: "Salesforce for All: Building Accessible Web Components",
     event: "Dreamforce 2019",
-    url: "https://success.salesforce.com/sessions?eventId=a1Q3A000021ea1UUAQ#/session/a2q3A000002BJNf",
   },
 ];
 
