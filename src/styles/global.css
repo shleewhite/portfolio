@@ -211,6 +211,7 @@ main {
 .entry__title--plain {
   font-size: 14px;
   color: var(--text-primary);
+  text-decoration: none;
 }
 
 .entry__slides {
