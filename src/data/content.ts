@@ -54,7 +54,7 @@ export const speaking = [
   {
     title: "Progress over Perfection: Your First Steps in Accessibility",
     event: "LibertyJS 2023",
-    url: "https://www.shleewhite.com/progress-over-perfection/#/",
+    url: "https://shleewhite.github.io/progress-over-perfection/",
   },
   {
     title: "Accessibility and Web Components",
