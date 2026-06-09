@@ -1,35 +1,29 @@
 # shleewhite.com
 
-This site extends the LitElement JS starter.
+Personal portfolio site built with [Astro](https://astro.build).
 
-## Dev Server
-
-Uses open-wc's [es-dev-server](https://github.com/open-wc/open-wc/tree/master/packages/es-dev-server) for previewing the project without additional build steps.
+## Dev server
 
 ```bash
-npm run serve
+npm run dev
 ```
 
-See dev page at http://localhost:8000/dev/index.html.
-
-## Static Site
-
-Uses the [eleventy](11ty.dev) static site generator and the templates and pages in `/docs-src` to generate the actual website. The site is generated to `/docs` and intended to be checked in so that GitHub pages can serve the site.
-
-To build the site, run:
+## Build
 
 ```bash
-npm run docs
+npm run build
 ```
 
-To serve the site locally, run:
+## Preview built site
 
 ```bash
-npm run docs:serve
+npm run preview
 ```
 
-To watch the site files, and re-build automatically, run:
+## Tests
+
+End-to-end accessibility tests using Playwright:
 
 ```bash
-npm run docs:watch
+npm run test
 ```
